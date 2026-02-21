@@ -2,164 +2,419 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tran Sinh Hoang — Client Service & Sales | Calgary, AB" />
-  <title>Tran Sinh Hoang | Client Service & Sales</title>
+  <meta name="robots" content="index,follow" />
+  <title>Tran Sinh Hoang | Resume</title>
+
+  <meta property="og:title" content="Tran Sinh Hoang | Resume" />
+  <meta property="og:description" content="Client-focused sales and service professional — Calgary, AB." />
+  <meta property="og:type" content="website" />
+
   <style>
-    :root { --max: 820px; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.5;
-      color: #111;
-      background: #fff;
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.08);
+      --panel2: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.58);
+      --accent: #9ef0ff;
+      --accent2: #c9a7ff;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
     }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 18px 56px; }
-    header { display: grid; gap: 10px; padding-bottom: 18px; border-bottom: 1px solid #e6e6e6; }
-    h1 { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
-    .subtitle { margin: 0; font-size: 16px; }
-    .meta { font-size: 14px; color: #333; }
-    .meta a { text-decoration: none; border-bottom: 1px solid #bbb; }
-    .meta a:hover { border-bottom-color: #111; }
-    .pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-    .pill {
-      font-size: 13px;
-      padding: 6px 10px;
-      border: 1px solid #e6e6e6;
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f7fb;
+        --panel: rgba(0,0,0,.04);
+        --panel2: rgba(0,0,0,.03);
+        --border: rgba(0,0,0,.08);
+        --text: rgba(0,0,0,.92);
+        --muted: rgba(0,0,0,.70);
+        --muted2: rgba(0,0,0,.58);
+        --shadow: 0 20px 60px rgba(10,20,40,.12);
+      }
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1100px 700px at 20% 10%, rgba(158,240,255,.20), transparent 55%),
+                  radial-gradient(900px 600px at 85% 15%, rgba(201,167,255,.18), transparent 55%),
+                  radial-gradient(900px 700px at 60% 90%, rgba(158,240,255,.12), transparent 60%),
+                  var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 220px;
+    }
+
+    .dot{
+      width: 12px; height: 12px;
       border-radius: 999px;
-      background: #fafafa;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(158,240,255,.10);
+      flex: 0 0 auto;
     }
-    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid #e6e6e6;
-      text-decoration: none;
-      font-weight: 600;
+
+    .nav{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .nav a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: transparent;
+    }
+    .nav a:hover{
+      border-color: var(--border);
+      background: var(--panel2);
+      text-decoration:none;
+      color: var(--text);
+    }
+
+    .hero{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel), transparent 140%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .hero-inner{
+      padding: 26px 22px 18px;
+      display:grid;
+      gap: 16px;
+    }
+
+    .title{
+      display:grid;
+      gap: 6px;
+    }
+
+    h1{
+      margin:0;
+      font-size: 32px;
+      letter-spacing: .2px;
+      line-height: 1.15;
+    }
+
+    .role{
       font-size: 14px;
-      background: #111;
-      color: #fff;
+      color: var(--muted);
     }
-    .btn.secondary { background: #fff; color: #111; }
-    section { padding-top: 18px; }
-    h2 { margin: 0 0 10px; font-size: 16px; letter-spacing: 0.4px; text-transform: uppercase; }
-    .card {
-      border: 1px solid #e6e6e6;
-      border-radius: 14px;
-      padding: 14px;
-      background: #fff;
+
+    .meta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      color: var(--muted);
+      font-size: 14px;
     }
-    ul { margin: 10px 0 0; padding-left: 18px; }
-    li { margin: 6px 0; }
-    .grid2 { display: grid; gap: 12px; }
-    @media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
-    .small { font-size: 13px; color: #333; }
-    footer { margin-top: 26px; padding-top: 14px; border-top: 1px solid #e6e6e6; color: #333; font-size: 13px; }
-    .muted { color: #444; }
-    .nowrap { white-space: nowrap; }
+    .meta span{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--panel2);
+      border: 1px solid var(--border);
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      color: var(--text);
+      font-weight: 650;
+      font-size: 14px;
+      text-decoration:none;
+      backdrop-filter: blur(6px);
+    }
+    .btn:hover{
+      background: var(--panel2);
+      text-decoration:none;
+    }
+    .btn.primary{
+      border-color: rgba(158,240,255,.40);
+      background: linear-gradient(135deg, rgba(158,240,255,.22), rgba(201,167,255,.16));
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (min-width: 840px){
+      .grid{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: var(--panel2);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .summary{
+      font-size: 15px;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .tag{
+      font-size: 13px;
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+    }
+
+    .section{
+      margin-top: 16px;
+      display:grid;
+      gap: 14px;
+    }
+
+    .item{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.02);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .item-head{
+      display:flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px 12px;
+      margin-bottom: 8px;
+    }
+
+    .item-title{
+      margin:0;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: .1px;
+    }
+    .item-sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .item-sub strong{ color: var(--text); }
+
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+    li{ margin: 7px 0; }
+    .muted{ color: var(--muted); }
+    .small{ font-size: 13px; color: var(--muted); }
+
+    .cols2{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 840px){
+      .cols2{ grid-template-columns: 1fr 1fr; }
+    }
+
+    footer{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    @media print{
+      body{ background:#fff; color:#000; }
+      .hero, .card, .item{ box-shadow:none; }
+      .nav, .cta{ display:none !important; }
+      a{ text-decoration:none; color:#000; }
+    }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <header>
-      <h1>Tran Sinh Hoang</h1>
-      <p class="subtitle">Client Service & Sales • Calgary, AB</p>
-
-      <div class="meta">
-        <span class="nowrap">Phone: <a href="tel:+14034718094">403-471-8094</a></span>
-        &nbsp;•&nbsp;
-        <span class="nowrap">Email: <a href="mailto:alex304192@gmail.com">alex304192@gmail.com</a></span>
-        <!-- Optional: add LinkedIn -->
-        <!-- &nbsp;•&nbsp; <span class="nowrap">LinkedIn: <a href="https://www.linkedin.com/in/YOURNAME">your-link</a></span> -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="small muted">Resume</div>
       </div>
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#summary">Summary</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+      </nav>
+    </div>
 
-      <div class="pillrow" aria-label="Highlights">
-        <span class="pill">~100 customers/day</span>
-        <span class="pill">~$2,000/day sales environment</span>
-        <span class="pill">Upselling + promotions (target ~$500/day)</span>
-        <span class="pill">Cash handling + customer info confidentiality</span>
-        <span class="pill">Vietnamese + English</span>
-      </div>
-
-      <div class="cta">
-        <!-- Upload your resume PDF and set the correct file name below -->
-        <a class="btn" href="Tran-Sinh-Hoang-Resume.pdf" download>Download Resume (PDF)</a>
-        <a class="btn secondary" href="mailto:alex304192@gmail.com">Contact</a>
-      </div>
-    </header>
-
-    <section>
-      <h2>Summary</h2>
-      <div class="card">
-        Client-focused sales and service professional with 8 years of floor leadership experience in a high-traffic
-        environment. Strong at proactive conversations, needs discovery, upselling, and calm problem resolution. Trusted
-        with cash handling and customer information. Recognized academically with multiple scholarships; fast learner and
-        reliable for rotational shifts and weekends.
-      </div>
-    </section>
-
-    <section class="grid2">
-      <div>
-        <h2>Core Skills</h2>
-        <div class="card">
-          <ul>
-            <li>Proactive client engagement • needs-based conversations • relationship building</li>
-            <li>Sales execution • upselling/promotions • working toward daily targets</li>
-            <li>Service excellence • complaint resolution • de-escalation • problem-solving</li>
-            <li>Cash handling • accuracy • attention to detail • documentation</li>
-            <li>Confidentiality mindset • policy and procedure adherence</li>
-            <li>Training/coaching • self-directed work style • reliability</li>
-          </ul>
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="title">
+          <h1>Tran Sinh Hoang</h1>
+          <div class="role">Target Role: Mobile Financial Services Representative — CIBC</div>
         </div>
-      </div>
 
-      <div>
-        <h2>Availability</h2>
-        <div class="card">
-          <ul>
-            <li>Work eligibility: Canadian citizen</li>
-            <li>Flexible for rotational shifts, weekends, and statutory holidays</li>
-            <li>Able to commute across Calgary locations</li>
-            <li>Languages: Vietnamese, English</li>
-          </ul>
-          <p class="small muted" style="margin:10px 0 0;">
-            Optional line (only if true): Comfortable introducing clients to mobile/online tools and explaining steps clearly.
-          </p>
+        <div class="meta" aria-label="Contact information">
+          <span><strong>Calgary, AB</strong></span>
+          <span><a href="tel:+14034718094">403-471-8094</a></span>
+          <span><a href="mailto:alex304192@gmail.com">alex304192@gmail.com</a></span>
+          <span><a href="https://hoangfbfgym.github.io/hoangtran/" target="_blank" rel="noreferrer">Website</a></span>
+        </div>
+
+        <div class="cta" aria-label="Call to action buttons">
+          <!-- Upload a PDF with this exact filename to the same folder as index.html -->
+          <a class="btn primary" href="Tran-Sinh-Hoang-Resume.pdf" download>Download Resume (PDF)</a>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Experience</h2>
+    <div class="grid">
+      <section class="card" id="summary">
+        <h2>Summary</h2>
+        <p class="summary">
+          Client-focused sales and service professional with 8 years of floor leadership experience in a high-traffic environment.
+          Strong at proactive conversations, needs discovery, upselling, and calm problem resolution. Trusted with cash handling
+          and customer information. Recognized academically with multiple scholarships; fast learner and reliable for rotational
+          shifts and weekends.
+        </p>
+      </section>
+
+      <aside class="card" id="skills">
+        <h2>Core skills</h2>
+        <div class="tags" role="list" aria-label="Skill tags">
+          <span class="tag" role="listitem">Proactive client engagement</span>
+          <span class="tag" role="listitem">Needs-based conversations</span>
+          <span class="tag" role="listitem">Relationship building</span>
+          <span class="tag" role="listitem">Sales execution</span>
+          <span class="tag" role="listitem">Upselling & promotions</span>
+          <span class="tag" role="listitem">Objection handling</span>
+          <span class="tag" role="listitem">Service excellence</span>
+          <span class="tag" role="listitem">De-escalation</span>
+          <span class="tag" role="listitem">Problem-solving</span>
+          <span class="tag" role="listitem">Root-cause troubleshooting</span>
+          <span class="tag" role="listitem">Cash handling</span>
+          <span class="tag" role="listitem">Accuracy & documentation</span>
+          <span class="tag" role="listitem">Confidentiality</span>
+          <span class="tag" role="listitem">Policy & procedure adherence</span>
+          <span class="tag" role="listitem">Training & coaching</span>
+          <span class="tag" role="listitem">Self-directed reliability</span>
+          <span class="tag" role="listitem">Comfortable with mobile/online tools</span>
+        </div>
+      </aside>
+    </div>
+
+    <section class="section" id="experience">
       <div class="card">
-        <strong>Floor Manager</strong> — Viet Garden Vietnamese Restaurant • Calgary, AB
-        <div class="small muted">2017–2025</div>
-        <ul>
-          <li>Engaged and supported approximately <strong>100 customers/day</strong>; identified needs quickly and provided the right solution.</li>
-          <li>Supported a daily revenue environment of about <strong>$2,000/day</strong> through consistent service execution and upselling.</li>
-          <li>Promoted seasonal/holiday specials and events; worked toward a daily upsell/sales target of <strong>~$500/day</strong>.</li>
-          <li>Trained and supported <strong>1–2 staff per shift</strong>, improving service quality and customer experience.</li>
-          <li>Resolved customer complaints using calm de-escalation, clear communication, and practical solutions.</li>
-          <li>Managed <strong>cash handling</strong> (payments and refunds/adjustments as required) with accuracy and accountability.</li>
-          <li>Handled customer information (reservations/delivery/contact details) with discretion and confidentiality.</li>
-          <li>Completed opening/closing and keyholder duties; followed food safety, cash-control, and operational procedures.</li>
-        </ul>
+        <h2>Experience</h2>
+
+        <div class="item">
+          <div class="item-head">
+            <p class="item-title">Floor Manager — Viet Garden Vietnamese Restaurant</p>
+            <p class="item-sub">Calgary, AB • <strong>2017–2025</strong></p>
+          </div>
+
+          <ul>
+            <li>Engaged and supported approximately <strong>100 customers/day</strong> in a fast-paced setting; asked targeted questions to identify needs and provide the right solution quickly.</li>
+            <li>Supported daily revenue around <strong>$2,000/day</strong> through consistent service execution, speed, and upselling.</li>
+            <li>Promoted seasonal/holiday specials and events; worked toward a daily upsell/sales target of <strong>~$500/day</strong>.</li>
+            <li>Trained and supported <strong>1–2 staff per shift</strong>, improving consistency, service quality, and customer experience.</li>
+            <li>Resolved customer complaints with calm de-escalation, clear communication, and practical resolution.</li>
+            <li>Managed cash handling (payments and refunds/adjustments as required) with accuracy and accountability.</li>
+            <li>Handled customer information (reservations/delivery/contact details) with discretion and confidentiality.</li>
+            <li>Completed opening/closing and keyholder duties; followed food safety, cash-control, and operational procedures.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="grid2">
-      <div>
+    <section class="cols2">
+      <div class="card" id="education">
         <h2>Education</h2>
-        <div class="card">
-          <strong>Mount Royal University</strong> — Computer Science (2 years completed; not finished)
-          <div class="small muted">2012–2014 • Calgary, AB</div>
-          <div style="height:10px"></div>
-          <strong>SAIT (Southern Alberta Institute of Technology)</strong> — Software Development (1 semester; not completed)
-          <div class="small muted">Sep 2023 – Jan 2024 • Calgary, AB</div>
+
+        <div class="item">
+          <div class="item-head">
+            <p class="item-title">Mount Royal University — Computer Science</p>
+            <p class="item-sub"><strong>2012–2014</strong> • 2 years completed (not finished)</p>
+          </div>
+        </div>
+
+        <div class="item" style="margin-top:12px;">
+          <div class="item-head">
+            <p class="item-title">SAIT — Software Development</p>
+            <p class="item-sub"><strong>Sep 2023 – Jan 2024</strong> • 1 semester (not completed)</p>
+          </div>
           <ul>
             <li><strong>GPA:</strong> 4.0/4.0 (semester)</li>
             <li>5 courses; grades near 100% that term</li>
@@ -167,13 +422,23 @@
         </div>
       </div>
 
-      <div>
+      <div class="card" id="awards">
         <h2>Scholarships & Awards</h2>
-        <div class="card">
+        <ul>
+          <li>Mount Royal University Computer Science Department Scholarship</li>
+          <li>Dr. Martha Cohen International Student Scholarship</li>
+          <li>Jack Memorial Scholarship</li>
+        </ul>
+
+        <div class="item" style="margin-top:12px;">
+          <div class="item-head">
+            <p class="item-title">Additional</p>
+            <p class="item-sub">&nbsp;</p>
+          </div>
           <ul>
-            <li>Mount Royal University Computer Science Department Scholarship</li>
-            <li>Dr. Martha Cohen International Student Scholarship</li>
-            <li>Jack Memorial Scholarship</li>
+            <li>Languages: Vietnamese, English</li>
+            <li>Work eligibility: Canadian citizen</li>
+            <li>Availability: Flexible for rotational shifts (7:00 AM–9:00 PM), weekends, and statutory holidays; able to commute across Calgary</li>
           </ul>
         </div>
       </div>
@@ -181,8 +446,8 @@
 
     <footer>
       <div>
-        <span class="muted">Note:</span> Replace <span class="nowrap">Tran-Sinh-Hoang-Resume.pdf</span> with your actual PDF filename.
-        If you don’t have a PDF yet, remove the “Download Resume” button.
+        PDF setup: upload your resume PDF to the same folder as <strong>index.html</strong> and name it
+        <strong>Tran-Sinh-Hoang-Resume.pdf</strong> (or change the button link to match your filename).
       </div>
     </footer>
   </main>
