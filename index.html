@@ -12,6 +12,12 @@
   <meta property="og:type" content="website" />
 
   <style>
+        html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+    }
     :root{
       --bg: #0b1020;
       --panel: rgba(255,255,255,.08);
@@ -453,3 +459,4 @@
   </main>
 </body>
 </html>
+
